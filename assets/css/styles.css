@@ -172,12 +172,8 @@ hide
 
 .products-list{
     list-style:none;
-    /*margin-left:225px;*/
-    /*max-width: 1500px;*/
     text-align: center;
     padding: 0;
-    /*opacity: 0;*/
-    /*font-size: 0;*/
 }
 
 .products-list > li{
@@ -199,25 +195,9 @@ hide
     padding: 25px;
 }
 
-
-/* The product image */
-
-.products-list .product-photo{
-    /*display: block;*/
-    /*text-align: center;*/
-    /*box-shadow : 0 0 20px 8px #f3f3f3 inset;*/
-
-    /*!*width: 275px;*!*/
-    /*margin-bottom: 25px;*/
-    /*padding: 20px 0;*/
-    /*box-sizing: border-box;*/
-}
-
 /* The product name */
 
 .products-list h2{
-    /*display: block;*/
-    /*font-size: 18px;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow:ellipsis;
@@ -235,7 +215,7 @@ hide
 .products-list .product-description{
     margin-top: 20px;
 
-    color: #5d5d5d;
+    color: #2B2E31;
     font-size: 14px;
     line-height: 1.45;
     white-space: normal;
@@ -260,20 +240,8 @@ hide
 }
 
 /* Price and order button */
-
 .products-list button{
     margin: 3px;
-    /*border-radius: 2px;*/
-    /*background-color:  #87bae1;*/
-    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);*/
-    /*border: 0;*/
-    /*color: #ffffff;*/
-    /*font-weight: bold;*/
-    /*font-size: 13px;*/
-    /*cursor: pointer;*/
-
-    /*width: 95px;*/
-    /*height: 32px;*/
 }
 
 .products-list .product-price{
@@ -300,12 +268,26 @@ button.hideButtonAddProd {
 /*----------------
   cart
 ----------------*/
-
-.cart-page .prod{
+.divViewCart .prod{
+    box-sizing:border-box;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
     border: 1px solid #6c757d;
     border-radius: 5px;
-    margin: 5px;
+    text-align:left;
+    font:normal 12px sans-serif;
+    background-color:#ffffff;
+
+    box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.08);
+
+    margin: 10px 0 10px 10px;
     padding: 5px;
+}
+
+.productCount{
+    margin: 0 10px;
 }
 
 .sumProductPrice{
@@ -319,20 +301,17 @@ button.hideButtonAddProd {
     margin: 0;
 }
 
-.divViewCart{
-    margin: 10px 0 5px 5px;
-    padding: 0;
-    widows: 100%;
+
+
+.cartIsEmpty{
+    transition: 1s;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    font-size: 40px;
 }
-
-.totalAmount{
-    /*font-size: ;*/
-}
-
-.priceForAll{
-
-}
-
 
 @media (max-width: 576px){
     .totalAmount,.priceForAll{
@@ -340,9 +319,9 @@ button.hideButtonAddProd {
     }
 }
 
-@media (max-width: 720px){
+@media (min-width: 720px){
     .divViewCart{
-        margin: 10px 0 10px 70px;
+        margin: 10px 0 10px 100px;
     }
 }
 
@@ -451,7 +430,7 @@ a{color:inherit;text-decoration:none}
 .login-form .group .button{
     border:none;
     padding:15px 20px;
-    border-radius:25px;
+    border-radius:9px;
     background:rgba(255,255,255,.1);
 }
 .login-form .group input[data-type="password"]{
@@ -541,7 +520,6 @@ a{color:inherit;text-decoration:none}
 ----------------------------*/
 
 .error.page{
-    /*opacity: 0;                                      //*/
     transition: 0.6s;
     pointer-events: none;
     position: absolute;

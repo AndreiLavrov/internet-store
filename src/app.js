@@ -12,7 +12,6 @@ import { NewsModel } from './news/news-model.js';
 import { NewsView } from './news/news-view.js';
 
 
-
 window.addEventListener('load', () => {
     const router = new Router();
     const productsModel = new ProductsModel();
@@ -27,9 +26,6 @@ window.addEventListener('load', () => {
     const newsView = new NewsView();
 
 
-
-
-
    const controller = new AppModule(
        router,
        newsModel,
@@ -42,5 +38,4 @@ window.addEventListener('load', () => {
        aboutView,
        loginModel,
        loginView);
-
 });

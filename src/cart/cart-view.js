@@ -1,52 +1,55 @@
-import { EventEmitter } from '../evente-emitter';
+import {EventEmitter} from '../evente-emitter';
 
 export class CartView extends EventEmitter {
-		constructor () {
-				super();
-		}
+    constructor() {
+        super();
+    }
 
-		showCartPage(allProducts, cartObgLS) {
-				const cartPage = document.querySelector('.cart-page');
-				cartPage.innerHTML = '';
+    /**
+     * show Cart Page
+     * @param allProducts -- all Products in server
+     * @param cartObgLS -- cart from Local Storage
+     */
+    showCartPage(allProducts, cartObgLS) {
+        const cartPage = document.querySelector('.cart-page');
+        cartPage.innerHTML = '';
 
-				if (Object.keys(cartObgLS).length === 0) {
+        if (Object.keys(cartObgLS).length === 0) {
+            let viewCart = document.createElement('div');
+            viewCart.innerHTML = `<div class = "cartIsEmpty">cart is empty!</div>`;
+            cartPage.appendChild(viewCart);
 
-						let viewCart = document.createElement('div');
-						viewCart.innerHTML = `Cart is empty!`;
-						cartPage.appendChild(viewCart);
+            document.querySelector('#spinnerMain').classList.add('hider');
+            cartPage.classList.remove('hider');
 
-						document.querySelector('#spinnerMain').classList.add('hider');
-						cartPage.classList.remove('hider');
+        } else {
+            this.drawCart(allProducts, cartObgLS, cartPage);
+            document.querySelector('.cart-page img').onload = () => {
+                document.querySelector('#spinnerMain').classList.add('hider');
+                cartPage.classList.remove('hider');
+            }
+        }
+    }
 
-				} else {
-						console.log(allProducts);
-						this.drawCart(allProducts, cartObgLS, cartPage);
+    /**
+     * I Use break to avoid sorting out unnecessary options.
+     * I draw every cart element and add listeners.
+     * @param allProducts -- all Products in server
+     * @param cartObgLS -- cart from Local Storage
+     * @param cartPage -- cart Page
+     */
+    drawCart(allProducts, cartObgLS, cartPage) {
+        for (let key in cartObgLS) {
+            let product;
+            for (let i = 0; i < allProducts.length; i++) {
+                if (String(allProducts[i].id) === String(key)) {
+                    product = allProducts[i];
+                    break;
+                }
+            }
 
-						document.querySelector('.cart-page img').onload = () => {
-								document.querySelector('#spinnerMain').classList.add('hider');
-								cartPage.classList.remove('hider');
-						}
-				}
-		}
-
-		/**
-		 * I Use break to avoid sorting out unnecessary options.
-		 * @param allProducts
-		 * @param cartObgLS
-		 * @param cartPage
-		 */
-		drawCart (allProducts, cartObgLS, cartPage) {
-				for (let key in cartObgLS) {
-						let product;
-						for(let i = 0; i < allProducts.length; i++) {
-								if (String(allProducts[i].id) === String(key)) {
-										product = allProducts[i];
-										break;
-								}
-						}
-
-						let viewCart = document.createElement('div');
-						viewCart.innerHTML = `
+            let viewCart = document.createElement('div');
+            viewCart.innerHTML = `
 <div class="col-12 prod prod-in-cart-${key}">		
 		<div class="row">
 				<div class="col-2 col-md-1">
@@ -59,21 +62,22 @@ export class CartView extends EventEmitter {
 				<div class="col-12 col-md-8 col-lg-9">
 						<div class="row">
 								<span class="col-12 h5 mb-4 productName">${product.name}</span>
-								<div class="col-12 justify-content-around">${product.description}</div>
+						</div>
+						<div class="row">
+								<div class="col-12 h6">${product.description}</div>
+						</div>
+						<div class="row">
+								<div class="col-12 h6">Installment !!! from 4 months to 48 months !!! Across the Republic of Belarus! Shop in the center of Minsk! [pl. Victory, st. Kiselev]. Russian keyboard!!! Check the numbers through the site APPLE! You can pickup and test! Work since 2006! Discount up to 10% through the basket onliner.by until May 29</div>
 						</div>
 				</div>
 		</div>
 		<div class="row">
-				<div class="col-sm-7 totalAmount">
+				<div class="col-sm-6 totalAmount">
 						<span class="mr-sm-0 h5">Total amount of goods</span>
 				</div>
-				<div class="col-2 col-sm-1">		
+				<div class="col-12 col-sm-6 row justify-content-end">		
 						<button type="button" class="btn btn-outline-success mr-sm-0 minus" data-art="${key}">-</button>
-				</div>
-				<div class="col-2 col-sm-2">	
-						<span class="productCount h5">${cartObgLS[key]}</span>
-				</div>
-				<div class="col-2 col-sm-2">	
+						<span class="productCount h4">${cartObgLS[key]}</span>
 						<button type="button" class="btn btn-outline-success ml-sm-0 plus" data-art="${key}">+</button>
 				</div>
 				<div class="col-sm-8 priceForAll">	
@@ -85,56 +89,53 @@ export class CartView extends EventEmitter {
 		</div>
 </div>`;
 
-						viewCart.classList.add('divViewCart');
+            viewCart.classList.add('divViewCart');
+            cartPage.appendChild(viewCart);
+        }
 
-						cartPage.appendChild(viewCart);
-				}
+        let arrButPlus = document.querySelectorAll('.plus');
+        arrButPlus.forEach((item) => {
 
-				let arrButPlus = document.querySelectorAll('.plus');
-				arrButPlus.forEach((item) => {
+            item.addEventListener('click', (event) => {
+                let id = event.target.getAttribute('data-art');
+                this.emit('addProdToCat', id);
 
-						item.addEventListener('click', (event) => {
+                let productCount = document.querySelector(`.prod-in-cart-${id} .productCount`);
+                productCount.innerHTML = Number(productCount.innerHTML) + 1;
 
-								let id = event.target.getAttribute('data-art');
-								this.emit('addProdToCat', id);
+                let sumProductPrice = document.querySelector(`.prod-in-cart-${id} .sumProductPrice`);
+                let productPrice = sumProductPrice.getAttribute('data-art');
+                sumProductPrice.innerHTML = Number(sumProductPrice.innerHTML) + Number(productPrice);
+            });
+        });
 
-								let productCount = document.querySelector(`.prod-in-cart-${id} .productCount`);
-								productCount.innerHTML = Number(productCount.innerHTML) + 1;
+        let arrButDel = document.querySelectorAll('.delete');
+        arrButDel.forEach((item) => {
 
-								let sumProductPrice = document.querySelector(`.prod-in-cart-${id} .sumProductPrice`);
-								let productPrice = sumProductPrice.getAttribute('data-art');
-								sumProductPrice.innerHTML = Number(sumProductPrice.innerHTML) + Number(productPrice);
-						});
-				});
+            item.addEventListener('click', (event) => {
+                let id = event.target.getAttribute('data-art');
+                this.emit('delProductFromCart', id);
+            });
+        });
 
+        let arrButMinus = document.querySelectorAll('.minus');
+        arrButMinus.forEach((item) => {
 
-				let arrButDel = document.querySelectorAll('.delete');
-				arrButDel.forEach((item) => {
+            item.addEventListener('click', (event) => {
 
-						item.addEventListener('click', (event) => {
+                let id = event.target.getAttribute('data-art');
+                this.emit('minusProductFromCart', id);
+            });
+        });
 
-								let id = event.target.getAttribute('data-art');
-								this.emit('delProductFromCart', id);
-						});
-				});
+    }
 
-
-				let arrButMinus = document.querySelectorAll('.minus');
-				arrButMinus.forEach((item) => {
-
-						item.addEventListener('click', (event) => {
-
-								let id = event.target.getAttribute('data-art');
-								this.emit('minusProductFromCart', id);
-						});
-				});
-
-		}
-
-		emptyCartView() {
-				let cartPage = document.querySelector('.cart-page');
-				cartPage.innerHTML = 'Cart is empty!';
-				console.log('emptyCartView');
-		}
+    /**
+     * add to cart 'Cart is empty!'
+     */
+    emptyCartView() {
+        let cartPage = document.querySelector('.cart-page');
+        cartPage.innerHTML = '<div class = "cartIsEmpty">cart is empty!</div>';
+    }
 
 }

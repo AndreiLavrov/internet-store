@@ -4,7 +4,6 @@ import { MethodsAJAX } from '../methodsAJAX';
 export class AboutModel extends EventEmitter{
 		constructor() {
 				super();
-
 				this.methodsAJAX = new MethodsAJAX();
 				this.aboutData = [];
 		}
@@ -17,7 +16,6 @@ export class AboutModel extends EventEmitter{
 										this.aboutData = about;
 										this.emit('getAboutData', about);
 								});
-
 				} else {
 						this.emit('getAboutData', this.aboutData);
 				}
