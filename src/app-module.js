@@ -9,7 +9,9 @@ export class AppModule {
                 aboutModel,
                 aboutView,
                 loginModel,
-                loginView) {
+                loginView,
+                commentsModel,
+                commentsView) {
 
 
         this.router = router;
@@ -29,6 +31,9 @@ export class AppModule {
         this.loginModel = loginModel;
         this.loginView = loginView;
 
+        this.commentsModel = commentsModel;
+        this.commentsView = commentsView;
+
         newsModel.on('getNews', (news) => this.generateAllNewsHTML(news));
         newsModel.on('filterNews', (news) => this.showFilterNews(news));
 
@@ -39,6 +44,11 @@ export class AppModule {
         cartView.on('delProductFromCart', (id) => this.delProductFromCart(id));
         cartView.on('minusProductFromCart', (id) => this.minusProductFromCart(id));
 
+        productsView.on('pressedButReadComments', (id) => this.searchComments(id));
+        commentsModel.on('getComments', (comments) => this.showComments(comments));
+        commentsView.on('sentComment', (objComment) => this.sentComment(objComment));
+
+
         aboutModel.on('getAboutData', (aboutData) => this.showAboutPage(aboutData));
 
         loginView.on('checkIsTakenEmail', (userObg) => this.checkIsTakenEmail(userObg));
@@ -48,6 +58,8 @@ export class AppModule {
         loginModel.on('userIsRegistered', (email) => this.showUserAccountEmail(email));
         loginView.on('loginOut', () => this.loginOut());
         loginModel.on('goToCart', () => this.goToCart());
+
+
 
         this.init();
         this.initHeaderButtons();
@@ -136,6 +148,20 @@ export class AppModule {
 
     showProductsPage(allProducts) {
         this.productsView.showProductsPage(allProducts, this.loginModel.userLogEmail);
+    }
+
+    searchComments(id){
+        this.commentsModel.getCommentsFromServer(id);
+        this.commentsView.addIndexButSentComm(id, this.loginModel.userLogEmail);
+    }
+
+    showComments(comments){
+        this.commentsView.showComments(comments);
+    }
+
+    sentComment(obj) {
+        console.log('sentComment');
+        this.commentsModel.sentComment(obj);
     }
 
     renderCartPage() {

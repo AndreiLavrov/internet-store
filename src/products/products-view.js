@@ -3,6 +3,7 @@ import {EventEmitter} from '../evente-emitter';
 export class ProductsView extends EventEmitter {
     constructor() {
         super();
+
     }
 
     /**
@@ -45,9 +46,9 @@ export class ProductsView extends EventEmitter {
 
         const imgProduct = document.querySelectorAll('.imgProduct');
         const imgModalProd = document.querySelector('.imgModalProd');
+        const  butShowComments = document.querySelectorAll('.butShowComments');
 
         buttonsAdd.forEach((but) => {
-
             but.addEventListener('click', (e) => {
                 let idElem = e.target.getAttribute('id');
                 this.showButtAddedProduct(e.target);
@@ -56,16 +57,18 @@ export class ProductsView extends EventEmitter {
         });
 
         imgProduct.forEach((img) => {
-
             img.addEventListener('click', (e) => {
-                console.log('srcElem');
-
                 let srcElem = e.target.getAttribute('src');
-                console.log(srcElem);
                 imgModalProd.setAttribute('src', `${srcElem}`);
-                console.log(imgModalProd);
             });
         });
+
+        butShowComments.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-index');
+                this.emit('pressedButReadComments', id);
+            })
+        })
     }
 
     /**
@@ -97,6 +100,12 @@ export class ProductsView extends EventEmitter {
         buttonsAdd.forEach((item) => {
             item.classList.remove('hideButtonAddProd');
         });
+    }
+
+    showComments(comments) {
+
+        // this.commentsView
+
     }
 
 }

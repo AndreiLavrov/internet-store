@@ -6,6 +6,7 @@ export class ProductsModel extends EventEmitter {
         super();
         this.methodsAJAX = new MethodsAJAX();
         this.allProducts = [];
+
     }
 
     /**

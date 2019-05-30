@@ -18,7 +18,8 @@ export class MethodsAJAX {
                     return response.json();
                 }
                 throw new Error(`Bad HTTP stuff..`);
-            });
+            })
+            .catch((e) => e);
     }
 
     sendData(url, data) {

@@ -10,6 +10,8 @@ import { AboutModel } from './about/about-model.js';
 import { AboutView } from './about/about-view.js';
 import { NewsModel } from './news/news-model.js';
 import { NewsView } from './news/news-view.js';
+import {CommentsModel} from "./comments/comments-model";
+import {CommentsView} from "./comments/comments-view";
 
 
 window.addEventListener('load', () => {
@@ -24,7 +26,8 @@ window.addEventListener('load', () => {
     const aboutView = new AboutView();
     const newsModel = new NewsModel();
     const newsView = new NewsView();
-
+    const commentsModel = new CommentsModel();
+    const commentsView = new CommentsView();
 
    const controller = new AppModule(
        router,
@@ -37,5 +40,8 @@ window.addEventListener('load', () => {
        aboutModel,
        aboutView,
        loginModel,
-       loginView);
+       loginView,
+       commentsModel,
+       commentsView
+   );
 });
