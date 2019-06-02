@@ -341,6 +341,10 @@ button.hideButtonAddProd {
     color: darkslategrey;
 }
 
+button.hideButtonComments {
+    display: none;
+}
+
 
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}

@@ -21,8 +21,10 @@ export class ProductsView extends EventEmitter {
 
         if (!userLogEmail) {
             this.addHideButtonAddProd();
+            this.addHideButtonComments();
         } else {
             this.removeHideButtonAddProd();
+            this.removeHideButtonComments();
         }
 
         document.querySelector('#spinnerMain')
@@ -93,6 +95,16 @@ export class ProductsView extends EventEmitter {
     }
 
     /**
+     * add class-hide to button
+     */
+    addHideButtonComments() {
+        let buttonsAdd = document.querySelectorAll('.butShowComments');
+        buttonsAdd.forEach((item) => {
+            item.classList.add('hideButtonComments');
+        });
+    }
+
+    /**
      * remove class-hide from the button
      */
     removeHideButtonAddProd() {
@@ -102,10 +114,15 @@ export class ProductsView extends EventEmitter {
         });
     }
 
-    showComments(comments) {
-
-        // this.commentsView
-
+    /**
+     * remove class-hide from the button
+     */
+    removeHideButtonComments() {
+        let buttonsAdd = document.querySelectorAll('.butShowComments');
+        if (!buttonsAdd) return;
+        buttonsAdd.forEach((item) => {
+            item.classList.remove('hideButtonComments');
+        });
     }
 
 }

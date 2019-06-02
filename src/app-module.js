@@ -151,8 +151,8 @@ export class AppModule {
     }
 
     searchComments(id){
+        this.commentsView.customizeButtonSentCom(id, this.loginModel.userLogEmail);
         this.commentsModel.getCommentsFromServer(id);
-        this.commentsView.addIndexButSentComm(id, this.loginModel.userLogEmail);
     }
 
     showComments(comments){
@@ -160,7 +160,6 @@ export class AppModule {
     }
 
     sentComment(obj) {
-        console.log('sentComment');
         this.commentsModel.sentComment(obj);
     }
 
@@ -231,6 +230,7 @@ export class AppModule {
         this.loginModel.loginOut();
         this.productsView.addHideButtonAddProd();
         this.cartView.emptyCartView();
+        this.productsView.addHideButtonComments();
     }
 
     renderErrorPage() {

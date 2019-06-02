@@ -297,47 +297,12 @@
     }
   ],
   "commentsProd1": [
-    {
-      "name": "bob",
-      "text": "it is not the best product!!!",
-      "indexProd": "1",
-      "id": 1
-    },
-    {
-      "name": "w@w",
-      "text": "it is the best product!!!",
-      "indexProd": "1",
-      "id": 2
-    },
-    {
-      "name": "w@w",
-      "text": "it is the best product!!!",
-      "indexProd": "1",
-      "id": 3
-    }
+
   ],
   "commentsProd2": [
-    {
-      "name": "bob",
-      "text": "it is not the best product!!!",
-      "indexProd": "2",
-      "id": 1
-    }
+
   ],
-  "commentsProd3": [
-    {
-      "name": "w@w",
-      "text": "good!!!",
-      "indexProd": "3",
-      "id": 5
-    },
-    {
-      "name": "w@w",
-      "text": "i like!!",
-      "indexProd": "3",
-      "id": 6
-    }
-  ],
+  "commentsProd3": [],
   "commentsProd4": [],
   "commentsProd5": [
     {
