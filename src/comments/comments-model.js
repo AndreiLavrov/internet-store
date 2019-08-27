@@ -12,7 +12,7 @@ export class CommentsModel extends EventEmitter {
      * @param idProd -- number
      */
     getCommentsFromServer(idProd) {
-        this.methodsAJAX.getDataFetch(`http://localhost:3006/commentsProd${idProd}`)
+        this.methodsAJAX.getDataFetch(`https://andreilavrov.github.io/internet-store/commentsProd${idProd}`)
             .then((arrComments) => {
                 this.arrComments = arrComments;
                 this.emit('getComments', arrComments);
@@ -25,7 +25,7 @@ export class CommentsModel extends EventEmitter {
      * @param obj -- {name, text, indexProd};
      */
     sentComment(obj) {
-        this.methodsAJAX.sendData(`http://localhost:3006/commentsProd${obj.indexProd}`, obj)
+        this.methodsAJAX.sendData(`https://andreilavrov.github.io/internet-store/commentsProd${obj.indexProd}`, obj)
             .then(() => {
                 if (this.arrComments) {
                     this.arrComments.push(obj);
