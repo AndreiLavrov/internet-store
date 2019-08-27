@@ -22,6 +22,6 @@ export class AboutModel extends EventEmitter{
 		}
 
 		getAboutDataAJAX() {
-				return this.methodsAJAX.getDataFetch('http://localhost:3006/about')
+				return this.methodsAJAX.getDataFetch('https://andreilavrov.github.io/internet-store/about')
 		}
 }
