@@ -13,7 +13,6 @@ export class AppModule {
                 commentsModel,
                 commentsView) {
 
-
         this.router = router;
 
         this.newsModel = newsModel;
@@ -34,30 +33,30 @@ export class AppModule {
         this.commentsModel = commentsModel;
         this.commentsView = commentsView;
 
-        newsModel.on('getNews', (news) => this.generateAllNewsHTML(news));
-        newsModel.on('filterNews', (news) => this.showFilterNews(news));
+        this.newsModel.on('getNews', (news) => this.generateAllNewsHTML(news));
+        this.newsModel.on('filterNews', (news) => this.showFilterNews(news));
 
-        productsModel.on('productsReceived', (all) => this.showProductsPage(all));
-        productsView.on('addProdToCat', (id) => this.addProdToCat(id));
+        this.prodModel.on('productsReceived', (all) => this.showProductsPage(all));
+        this.productsView.on('addProdToCat', (id) => this.addProdToCat(id));
 
-        cartView.on('addProdToCat', (id) => this.addProdToCat(id));
-        cartView.on('delProductFromCart', (id) => this.delProductFromCart(id));
-        cartView.on('minusProductFromCart', (id) => this.minusProductFromCart(id));
+        this.cartView.on('addProdToCat', (id) => this.addProdToCat(id));
+        this.cartView.on('delProductFromCart', (id) => this.delProductFromCart(id));
+        this.cartView.on('minusProductFromCart', (id) => this.minusProductFromCart(id));
 
-        productsView.on('pressedButReadComments', (id) => this.searchComments(id));
-        commentsModel.on('getComments', (comments) => this.showComments(comments));
-        commentsView.on('sentComment', (objComment) => this.sentComment(objComment));
+        this.productsView.on('pressedButReadComments', (id) => this.searchComments(id));
+        this.commentsModel.on('getComments', (comments) => this.showComments(comments));
+        this.commentsView.on('sentComment', (objComment) => this.sentComment(objComment));
 
 
-        aboutModel.on('getAboutData', (aboutData) => this.showAboutPage(aboutData));
+        this.aboutModel.on('getAboutData', (aboutData) => this.showAboutPage(aboutData));
 
-        loginView.on('checkIsTakenEmail', (userObg) => this.checkIsTakenEmail(userObg));
-        loginModel.on('emailIsTaken', (userStatusObj) => this.emailIsTaken(userStatusObj));
-        loginView.on('getUserFormSignUp', (userObg) => this.signUp(userObg));
-        loginView.on('getUserFormSignIn', (userObj) => this.signIn(userObj));
-        loginModel.on('userIsRegistered', (email) => this.showUserAccountEmail(email));
-        loginView.on('loginOut', () => this.loginOut());
-        loginModel.on('goToCart', () => this.goToCart());
+        this.loginView.on('checkIsTakenEmail', (userObg) => this.checkIsTakenEmail(userObg));
+        this.loginModel.on('emailIsTaken', (userStatusObj) => this.emailIsTaken(userStatusObj));
+        this.loginView.on('getUserFormSignUp', (userObg) => this.signUp(userObg));
+        this.loginView.on('getUserFormSignIn', (userObj) => this.signIn(userObj));
+        this.loginModel.on('userIsRegistered', (email) => this.showUserAccountEmail(email));
+        this.loginView.on('loginOut', () => this.loginOut());
+        this.loginModel.on('goToCart', () => this.goToCart());
 
 
 

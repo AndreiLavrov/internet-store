@@ -26,7 +26,7 @@ export class LoginModel extends EventEmitter {
      * @returns { Promise}
      */
     checkIsTakenEmail(userObj) {
-        return this.methodsAJAX.getDataFetch('https://andreilavrov.github.io/internet-store/login')
+        return this.methodsAJAX.getDataFetch('http://localhost:3006/login')
             .then((allUserObj) => {
                 for (let i = 0; i < allUserObj.length; i++) {
                     if (allUserObj[i].email === userObj.email) {
@@ -61,7 +61,7 @@ export class LoginModel extends EventEmitter {
      * @param userObj -- this is user data from the form
      */
     addNewUser(userObj) {
-        this.methodsAJAX.sendData('https://andreilavrov.github.io/internet-store/login', userObj)
+        this.methodsAJAX.sendData('http://localhost:3006/login', userObj)
             .then(() => {
 
                 this.userIsAuthorized(userObj);
@@ -74,7 +74,7 @@ export class LoginModel extends EventEmitter {
      * @param userObj -- this is user data from the form
      */
     signIn(userObj) {
-        this.methodsAJAX.getDataFetch('https://andreilavrov.github.io/internet-store/login')
+        this.methodsAJAX.getDataFetch('http://localhost:3006/login')
             .then((allUserObj) => {
 
                 for (let i = 0; i < allUserObj.length; i++) {
