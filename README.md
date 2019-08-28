@@ -14,7 +14,7 @@ HTML5, CSS, JS, jQuery, Bootstrap4, Local Storage.
 ![filter-news](./screenshots/filter-news.png)
 ![products-without-login](./screenshots/products-without-login.png)
 ![products-with-login](./screenshots/products-with-login.png)
-!cart](./screenshots/cart.png)
+![cart](./screenshots/cart.png)
 ![login](./screenshots/login.png)
 ![mobile](./screenshots/mobile.png)
 ![comments](./screenshots/comments.png)
