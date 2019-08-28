@@ -10,14 +10,14 @@ HTML5, CSS, JS, jQuery, Bootstrap4, Local Storage.
 [internet-store](https://andreilavrov.github.io/internet-store).
 
 # Site appearance photo:
-![major](/images-for-presentation/major.png)
-![filter-news](./images-for-presentation/filter-news.png)
-![products-without-login](https://andreilavrov.github.io/internet-store/images-for-presentation/products-without-login.png)
-![products-with-login](/images-for-presentation/products-with-login.png)
-!cart](/images-for-presentation/cart.png)
-![login](/images-for-presentation/login.png)
-![mobile](/images-for-presentation/mobile.png)
-![comments](/images-for-presentation/comments.png)
+![major](./screenshots/major.png)
+![filter-news](./screenshots/filter-news.png)
+![products-without-login](./screenshots/products-without-login.png)
+![products-with-login](./screenshots/products-with-login.png)
+!cart](./screenshots/cart.png)
+![login](./screenshots/login.png)
+![mobile](./screenshots/mobile.png)
+![comments](./screenshots/comments.png)
 
 # Browsers support:
 Last versions of Chrome, Firefox, Safari, Edge.
