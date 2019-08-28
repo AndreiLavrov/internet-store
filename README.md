@@ -10,9 +10,9 @@ HTML5, CSS, JS, jQuery, Swiper slider.
 [internet-store](https://andreilavrov.github.io/internet-store).
 
 # Site appearance photo:
-![major](https://https://andreilavrov.github.io/internet-store/images-for-presentation/major.png)
+![major](https://andreilavrov.github.io/internet-store/images-for-presentation/major.png)
 ![ативный текст](./images-for-presentation/major.png)
-![Альтернативный текст](/путь/к/изображению.jpg)
+![Ай текст](https://andreilavrov.github.io/internet-store/images-for-presentation/major.png)
 ![Альтернативный текст](/путь/к/изображению.jpg)
 ![Альтернативный текст](/путь/к/изображению.jpg)
 ![Альтернативный текст](/путь/к/изображению.jpg)
