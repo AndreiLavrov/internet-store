@@ -30,8 +30,7 @@ export class NewsModel extends EventEmitter {
      * @returns {Promise<T | void>}
      */
     getNewsByFetch() {
-        // return this.methodsAJAX.getDataFetch('http://localhost:3006/news')
-        return this.methodsAJAX.getDataFetch('https://andreilavrov.github.io/internet-store/news')
+        return this.methodsAJAX.getDataFetch('http://localhost:3006/news')
             .then((allNews) => {
 
                 this.allNews = allNews;

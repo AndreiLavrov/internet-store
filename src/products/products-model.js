@@ -30,7 +30,7 @@ export class ProductsModel extends EventEmitter {
      * @returns {Promise<T | never> | *}
      */
     getProdPromise() {
-        return this.methodsAJAX.getDataFetch('https://andreilavrov.github.io/internet-store/products')
+        return this.methodsAJAX.getDataFetch('http://localhost:3006/products')
             .then((products) => {
                 this.allProducts = products;
             });
