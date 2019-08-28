@@ -27,6 +27,8 @@ Since github.io does not allow working with the server, and this application inv
 actions algorithm: 
 
    1.Download the JSON-server - need to run the 'npm install -g json-server' command on the command line.
+   
    2.Download the database(db.json) by this [link](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/AndreiLavrov/AndreiLavrov.github.io/blob/master/internet-store(SPA)/db.json)  and Extract to selected directory.
+   
    3.RUN JSON-server - on the command line, being in the selected directory, you need to run the 'json-server --watch db.json --port 3006' command.
    
