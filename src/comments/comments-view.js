@@ -26,7 +26,7 @@ export class CommentsView extends EventEmitter {
         listUnstyled.innerHTML = '';
         const commentsTemplate = `{{#each this}} 
         <li class="media">
-            <img class="mr-3" src="../assets/images/user-ava.png" height="50rem" alt="image">
+            <img class="mr-3" src="../../assets/images/user-ava.png" height="50rem" alt="image">
             <div class="media-body">
             <h5 class="mt-0 mb-1">{{name}}</h5>
             <div class="spanTextComment"> {{text}}</div>   
