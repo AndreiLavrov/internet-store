@@ -4,23 +4,23 @@
 This is single page application using JSON-server.
 
 # Technology: 
-HTML5, CSS, JS, jQuery, Swiper slider.
+HTML5, CSS, JS, jQuery, Bootstrap4, Local Storage.
 
-# Visual representation:
+# Visual representation(no hosting - need to run locally):
 [internet-store](https://andreilavrov.github.io/internet-store).
 
 # Site appearance photo:
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
+![major](./screenshots/major.png)
+![filter-news](./screenshots/filter-news.png)
+![products-without-login](./screenshots/products-without-login.png)
+![products-with-login](./screenshots/products-with-login.png)
+!cart](./screenshots/cart.png)
+![login](./screenshots/login.png)
+![mobile](./screenshots/mobile.png)
+![comments](./screenshots/comments.png)
 
 # Browsers support:
-Last versions of Chrome.
+Last versions of Chrome, Firefox, Safari, Edge.
 
 # Project setup: 
 Since github.io does not allow working with the server, and this application involves working with the server, You will need to start the JSON-server and download the database(db.json), since the data is loaded by the JSON-server (addresses of pictures, comments, etc.) 
