@@ -13,11 +13,8 @@ HTML5, CSS, JS, jQuery, Swiper slider.
 ![major](https://andreilavrov.github.io/internet-store/images-for-presentation/major.png)
 ![ативный текст](./images-for-presentation/major.png)
 ![Ай текст](https://andreilavrov.github.io/internet-store/images-for-presentation/major.png)
-![Альтернативный текст](/images-for-presentation/major.png)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
-![Альтернативный текст](/путь/к/изображению.jpg)
+![Аернативный текст](/images-for-presentation/major.png)
+
 
 # Browsers support:
 Last versions of Chrome.
