@@ -303,8 +303,28 @@
       }
     }
   ],
-  "commentsProd1": [],
-  "commentsProd2": [],
+  "commentsProd1": [
+    {
+      "name": "a@f.com",
+      "text": "sadfD",
+      "indexProd": "1",
+      "id": 1
+    },
+    {
+      "name": "w@w",
+      "text": "this is the best product",
+      "indexProd": "1",
+      "id": 2
+    }
+  ],
+  "commentsProd2": [
+    {
+      "name": "a@f.com",
+      "text": "This is the best product!!!",
+      "indexProd": "2",
+      "id": 1
+    }
+  ],
   "commentsProd3": [],
   "commentsProd4": [],
   "commentsProd5": [],
